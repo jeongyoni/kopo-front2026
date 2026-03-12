@@ -1,0 +1,198 @@
++<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Gamja+Flower&family=Gothic+A1&family=Moirai+One&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+    <title>Lotto</title>
+    <style>
+        body{
+            background-color: rgb(207, 189, 189);
+            font-family: 'Dongle', sans-serif;
+        
+}
+
+
+.container{
+    width:1350px;
+    height:650px;
+    background-color:white;
+    display:flex;
+    flex-direction: column;
+    border:2px solid black;
+}
+h1{
+    text-align: center;
+    margin-top:20px;
+    font-size: 70px;
+}
+.top{
+    margin-top:10px;
+    display:flex;
+    align-items: center;
+    padding-left: 80px;
+    justify-content: flex-start;}
+
+.machine{
+    width:300px;
+    height:300px;
+    background-color:rgb(241, 154, 234);
+    border-radius:50%;
+    display:inline-block;
+    position:relative
+}
+.small-ball{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    font-weight: bold;
+    text-align:center;
+    line-height:50px;
+    position:absolute;
+}
+.ball{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    font-size:30px;
+    font-weight: bold;
+    margin:6px;
+    line-height:60px;
+
+}
+.yellow{
+    background-color:yellow;
+    color:black;
+
+}
+.blue{
+    background-color:blue;
+    color:black;
+}
+.red{
+    background-color:red;
+    color:rgb(0, 0, 0);
+}
+.gray{
+    background-color:gray;
+    color:black;
+}
+.green{
+    background-color:green;
+    color:black;
+}
+
+.b1{
+    background-color:yellow;
+    color:black;
+    left:65px;
+    top:75px;
+    font-size:30px;
+}
+.b2{
+    background-color:blue;
+    left: 100px;
+    top: 150px;
+    font-size:30px;
+}
+.b3{
+    background-color:red;
+    left: 200px;
+    top: 150px; 
+    font-size:30px;
+}
+.b4{
+    background-color:gray;
+    left: 150px;
+    top: 75px;      
+    font-size:30px;
+}
+.b5{
+    background-color: green;
+    left: 125px;
+    top: 200px;     
+    font-size:30px;
+}
+button{
+    background-color:red;
+    color:white;
+    font-size:20px;
+    border-radius:10px;
+    padding:10px;
+    margin-top:5px;
+}
+
+#lottoNumbers{
+    margin-top:80px;
+    font-size:30px;
+}
+
+
+    </style>
+    <script>
+        function getlotto(){
+            let numbers =[];
+
+            while(numbers.length <6){
+
+                let num = Math.floor(Math.random() * 45) +1;
+
+                if(!numbers.includes(num)){
+                     numbers.push(num);
+                }
+            }
+            //랜덤
+            //Math.random() * 큰수를 곱해서 % 45+1
+            //6개를 뽑아야 하는데, 문제 중복 숫자를 뽑으면 안된다.
+            //로직
+            document.getElementById("lottoNumbers").innerHTML = "";
+            for(let i=0;i<numbers.length;i++){
+                setTimeout(function(){
+                    let n =numbers[i];
+                    let color = "";
+
+                    if(n>=1 && n<=9){
+                        color = "yellow";
+                    }else if(n>=10 && n<=19){
+                        color = "blue";         
+                    }else if(n>=20 && n<=29){
+                        color = "red";
+                    }else if(n>=30 && n<=39){
+                        color = "gray";
+                    }else{
+                        color = "green";
+
+                    }
+                    document.getElementById("lottoNumbers").innerHTML += "<span class='ball " + color + "'>"+n+"</span>";
+                },i*500);
+            }
+        }
+    </script>
+       
+</head>
+<body>
+    <div class="container">
+        <h1>로또 번호 생성기</h1>
+        <div class = "top">
+            <div class="machine">
+                <div class="small-ball b1">7</div>
+                <div class="small-ball b2">14</div>
+                <div class="small-ball b3">21</div>
+                <div class="small-ball b4">28</div>
+                <div class="small-ball b5">42</div>
+            </div>
+
+            <div class="right">
+                <button onclick="getlotto()">HIT</button>
+
+                <div id ="lottoNumbers"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
