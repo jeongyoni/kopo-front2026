@@ -135,6 +135,9 @@ button{
     </style>
     <script>
         function getlotto(){
+            let button = document.getElementById("hitBtn");
+            button.disabled = true;
+
             let numbers =[];
 
             while(numbers.length <6){
@@ -168,6 +171,9 @@ button{
 
                     }
                     document.getElementById("lottoNumbers").innerHTML += "<span class='ball " + color + "'>"+n+"</span>";
+                    if(i==5){
+                        button.disabled = false;
+                    }
                 },i*500);
             }
         }
@@ -187,7 +193,7 @@ button{
             </div>
 
             <div class="right">
-                <button onclick="getlotto()">HIT</button>
+                <button id="hitBtn" onclick="getlotto()">HIT</button>
 
                 <div id ="lottoNumbers"></div>
             </div>
