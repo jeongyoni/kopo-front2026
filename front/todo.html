@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="todo" class="input_todo">
+    <input type="button" value="할일등록" id="insertTodo">
+    <input type="button" value="할일 삭제" id="deleteTodo">
+    <div>
+        <ul id ="todoList">
+        </ul>
+    </div>
+    <script>
+        const TodoAdd =document.getElementById('insertTodo'); //TodoAct=TodoAction버튼들
+        const input = document.querySelector('.input_todo');
+        const TodoDelete =document.getElementById('deleteTodo');
+        const todoList = document.getElementById('todoList');
+
+        TodoAdd.addEventListener('click', (event) => {
+            console.log(input.value);
+            todoList.insertAdjacentHTML('afterbegin', `<li>${input.value}</li>`);
+            //로컬 스토리지 추가 하기
+            localStorage.setItem('todo', todoList.innerHTML);
+        })
+        //할일 지우기 리스닝
+        TodoDelete.addEventListener('click', (event) => {
+            todoList.innerHTML ="";
+            localStorage.clear();
+        });
+
+        //clear()
+    </script>
+    
+</body>
+</html>
