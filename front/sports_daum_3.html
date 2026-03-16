@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>KBO 순위</title>
+
+    <style>
+        table {
+
+            border-collapse: collapse;
+            width: 900px;
+        }
+
+        th,
+        td {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .team {
+            text-align: left;
+        }
+
+        .rate {
+            background: #eef2f7;
+            
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>종합 순위</h2>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>순위</th>
+                <th>팀</th>
+                <th>경기</th>
+                <th>승</th>
+                <th>무</th>
+                <th>패</th>
+                <th style="color:#1760F0;">승률</th>
+                <th>게임차</th>
+                <th>연속</th>
+            </tr>
+        </thead>
+
+        <tbody id="teamList"></tbody>
+
+    </table>
+
+
+    <script>
+        const jsonUrl = 'https://prof-jwchi.github.io/kopo-front2026/Json/baseball.json';
+        var request = new XMLHttpRequest();
+
+        request.open("GET", jsonUrl);
+        request.responseType = "json";
+        request.send();
+        request.addEventListener('load', () => {
+            console.log(request.status);
+            console.log(request.response);
+            const data = request.response.list;
+            const teamList = document.getElementById("teamList");
+
+            let html = "";
+
+            for (let i = 0; i < data.length; i++) {
+
+                html += `
+<tr>
+<td>${data[i].rank.rank}</td>
+<td class="team">
+<img src="${data[i].imageUrl}" width="30">
+${data[i].shortName}
+</td>
+<td>${data[i].rank.game}</td>
+<td>${data[i].rank.win}</td>
+<td>${data[i].rank.draw}</td>
+<td>${data[i].rank.loss}</td>
+<td class="rate">${data[i].rank.wpct}</td>
+<td>${data[i].rank.gb}</td>
+<td>${data[i].rank.streak}</td>
+</tr>
+`;
+
+            }
+
+            teamList.innerHTML = html;
+
+        });
+
+    </script>
+
+</body>
+
+</html>

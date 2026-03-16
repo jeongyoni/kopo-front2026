@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size:13px;
+            margin:20px;
+        }
+
+        .container{
+            width:1100px;
+            height:486px;
+            margin:50px auto;
+            background:white;
+        }
+
+        h2{
+            margin:0 0 20px 0;
+            font-size:36px;
+            font-weight:bold;
+        }
+
+        table{
+            width:100%;
+            border-collapse: collapse;
+            border-top:1px solid #333;
+        }
+
+        th, td{
+            height:44px;
+            border-bottom:1px solid #e5e5e5;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:#f7f7f7;
+            font-weight:normal;
+            color:#666;
+        }
+
+        .rank{
+            width:60px;
+            font-weight:bold;
+        }
+
+        .team{
+            width:570px;
+            text-align:left;
+        }
+
+        .num{
+            width:70px;
+        }
+
+        .rate{
+            background:#f3f6fb;
+            font-weight:bold;
+            color:#1760f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>종합순위</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="rank">순위</th>
+                    <th class="team">팀</th>
+                    <th class="num">경기</th>
+                    <th class="num">승</th>
+                    <th class="num">무</th>
+                    <th class="num">패</th>
+                    <th class="num">승률</th>
+                    <th class="num">게임차</th>
+                    <th class="num">연속</th>
+                </tr>
+            </thead>
+            <tbody id="teamList"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const url = 'https://prof-jwchi.github.io/kopo-front2026/Json/baseball.json';
+
+        var request = new XMLHttpRequest();
+        request.open('GET', url);
+        request.responseType = 'json';
+        request.send();
+
+        request.addEventListener('load', () => {
+            console.log(request.status);
+            console.log(request.response);
+
+            const data = request.response;
+            const teamList = document.getElementById("teamList");
+
+            let html = "";
+
+             for(let i = 0; i < data.length; i++){
+            html += `
+                <tr>
+                    <td>${data[i].순위}</td>
+                    <td class="team">${data[i].팀}</td>
+                    <td>${data[i].경기}</td>
+                    <td>${data[i].승}</td>
+                    <td>${data[i].무}</td>
+                    <td>${data[i].패}</td>
+                    <td class="rate">${data[i].승률}</td>
+                    <td>${data[i].게임차}</td>
+                    <td>${data[i].연속}</td>
+                </tr>
+                `;
+            }
+
+            teamList.innerHTML = html;
+        });
+    </script>
+</body>
+</html>
