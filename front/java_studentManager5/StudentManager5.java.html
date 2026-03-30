@@ -1,0 +1,170 @@
+<html>
+<head>
+<title>StudentManager5.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #f8a3bb;}
+.s1 { color: #e08c8f;}
+.s2 { color: #d5bbbb;}
+.s3 { color: #ff5e83;}
+.s4 { color: #a4c474;}
+.s5 { color: #c69dee;}
+</style>
+</head>
+<body bgcolor="#000000">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+StudentManager5.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">java_studentManager5</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">StudentManager5 </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">Scanner scanner </span><span class="s3">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+        <span class="s1">ArrayList</span><span class="s3">&lt;</span><span class="s1">Student5</span><span class="s3">&gt; </span><span class="s1">students </span><span class="s3">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s3">&lt;&gt;</span><span class="s2">();</span>
+
+        <span class="s0">boolean </span><span class="s1">check </span><span class="s3">= </span><span class="s0">true</span><span class="s2">;</span>
+
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">check</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;--------------------------------------------------&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;1.학생 추가 | 2.학생 목록 | 3.학생 수정 | 4.학생 삭제 | 5.종료&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;--------------------------------------------------&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;선택&gt; &quot;</span><span class="s2">);</span>
+            <span class="s0">int </span><span class="s1">select </span><span class="s3">= </span><span class="s1">Integer</span><span class="s2">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">());</span>
+
+            <span class="s0">switch </span><span class="s2">(</span><span class="s1">select</span><span class="s2">) {</span>
+                <span class="s0">case </span><span class="s5">1</span><span class="s3">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;학생 추가&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;----------------&quot;</span><span class="s2">);</span>
+
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;학번(Key): &quot;</span><span class="s2">);</span>
+                    <span class="s1">String studentID </span><span class="s3">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+                    <span class="s0">boolean </span><span class="s1">exists </span><span class="s3">= </span><span class="s0">false</span><span class="s2">;</span>
+                    <span class="s0">for </span><span class="s2">(</span><span class="s1">Student5 s </span><span class="s3">: </span><span class="s1">students</span><span class="s2">) {</span>
+                        <span class="s0">if </span><span class="s2">(</span><span class="s1">s</span><span class="s2">.</span><span class="s1">studentID</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">studentID</span><span class="s2">)) {</span>
+                            <span class="s1">exists </span><span class="s3">= </span><span class="s0">true</span><span class="s2">;</span>
+                            <span class="s0">break</span><span class="s2">;</span>
+                        <span class="s2">}</span>
+                    <span class="s2">}</span>
+
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">exists</span><span class="s2">) {</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;이미 존재하는 학번입니다.&quot;</span><span class="s2">);</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                        <span class="s0">break</span><span class="s2">;</span>
+                    <span class="s2">}</span>
+
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;이름: &quot;</span><span class="s2">);</span>
+                    <span class="s1">String name </span><span class="s3">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;나이: &quot;</span><span class="s2">);</span>
+                    <span class="s0">int </span><span class="s1">age </span><span class="s3">= </span><span class="s1">Integer</span><span class="s2">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">());</span>
+
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;전공: &quot;</span><span class="s2">);</span>
+                    <span class="s1">String major </span><span class="s3">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+                    <span class="s1">Student5 student </span><span class="s3">= </span><span class="s0">new </span><span class="s1">Student5</span><span class="s2">(</span><span class="s1">studentID</span><span class="s2">, </span><span class="s1">name</span><span class="s2">, </span><span class="s1">age</span><span class="s2">, </span><span class="s1">major</span><span class="s2">);</span>
+                    <span class="s1">students</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">student</span><span class="s2">);</span>
+
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;학생을 추가하였습니다.&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">case </span><span class="s5">2</span><span class="s3">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;학생 목록&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;----------------&quot;</span><span class="s2">);</span>
+
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">students</span><span class="s2">.</span><span class="s1">size</span><span class="s2">() </span><span class="s3">== </span><span class="s5">0</span><span class="s2">) {</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;등록된 학생이 없습니다.&quot;</span><span class="s2">);</span>
+                    <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                        <span class="s0">for </span><span class="s2">(</span><span class="s1">Student5 s </span><span class="s3">: </span><span class="s1">students</span><span class="s2">) {</span>
+                            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;학번: &quot; </span><span class="s3">+ </span><span class="s1">s</span><span class="s2">.</span><span class="s1">studentID </span><span class="s3">+</span>
+                                    <span class="s4">&quot;, 이름: &quot; </span><span class="s3">+ </span><span class="s1">s</span><span class="s2">.</span><span class="s1">name </span><span class="s3">+</span>
+                                    <span class="s4">&quot;, 나이: &quot; </span><span class="s3">+ </span><span class="s1">s</span><span class="s2">.</span><span class="s1">age </span><span class="s3">+</span>
+                                    <span class="s4">&quot;, 전공: &quot; </span><span class="s3">+ </span><span class="s1">s</span><span class="s2">.</span><span class="s1">major</span><span class="s2">);</span>
+                        <span class="s2">}</span>
+                    <span class="s2">}</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">case </span><span class="s5">3</span><span class="s3">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;학생 수정&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;----------------&quot;</span><span class="s2">);</span>
+
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;학번(Key): &quot;</span><span class="s2">);</span>
+                    <span class="s1">String updateID </span><span class="s3">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+                    <span class="s0">boolean </span><span class="s1">foundUpdate </span><span class="s3">= </span><span class="s0">false</span><span class="s2">;</span>
+
+                    <span class="s0">for </span><span class="s2">(</span><span class="s1">Student5 s </span><span class="s3">: </span><span class="s1">students</span><span class="s2">) {</span>
+                        <span class="s0">if </span><span class="s2">(</span><span class="s1">s</span><span class="s2">.</span><span class="s1">studentID</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">updateID</span><span class="s2">)) {</span>
+                            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;새 이름: &quot;</span><span class="s2">);</span>
+                            <span class="s1">s</span><span class="s2">.</span><span class="s1">name </span><span class="s3">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+                            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;새 나이: &quot;</span><span class="s2">);</span>
+                            <span class="s1">s</span><span class="s2">.</span><span class="s1">age </span><span class="s3">= </span><span class="s1">Integer</span><span class="s2">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">());</span>
+
+                            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;새 전공: &quot;</span><span class="s2">);</span>
+                            <span class="s1">s</span><span class="s2">.</span><span class="s1">major </span><span class="s3">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+                            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;학생을 수정하였습니다.&quot;</span><span class="s2">);</span>
+                            <span class="s1">foundUpdate </span><span class="s3">= </span><span class="s0">true</span><span class="s2">;</span>
+                            <span class="s0">break</span><span class="s2">;</span>
+                        <span class="s2">}</span>
+                    <span class="s2">}</span>
+
+                    <span class="s0">if </span><span class="s2">(</span><span class="s3">!</span><span class="s1">foundUpdate</span><span class="s2">) {</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;해당 학번의 학생이 없습니다.&quot;</span><span class="s2">);</span>
+                    <span class="s2">}</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">case </span><span class="s5">4</span><span class="s3">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;학생 삭제&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;----------------&quot;</span><span class="s2">);</span>
+
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;학번(Key): &quot;</span><span class="s2">);</span>
+                    <span class="s1">String deleteID </span><span class="s3">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+                    <span class="s0">boolean </span><span class="s1">foundDelete </span><span class="s3">= </span><span class="s0">false</span><span class="s2">;</span>
+
+                    <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s3">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s3">&lt; </span><span class="s1">students</span><span class="s2">.</span><span class="s1">size</span><span class="s2">(); </span><span class="s1">i</span><span class="s3">++</span><span class="s2">) {</span>
+                        <span class="s0">if </span><span class="s2">(</span><span class="s1">students</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">studentID</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">deleteID</span><span class="s2">)) {</span>
+                            <span class="s1">students</span><span class="s2">.</span><span class="s1">remove</span><span class="s2">(</span><span class="s1">i</span><span class="s2">);</span>
+                            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;학생을 삭제하였습니다.&quot;</span><span class="s2">);</span>
+                            <span class="s1">foundDelete </span><span class="s3">= </span><span class="s0">true</span><span class="s2">;</span>
+                            <span class="s0">break</span><span class="s2">;</span>
+                        <span class="s2">}</span>
+                    <span class="s2">}</span>
+
+                    <span class="s0">if </span><span class="s2">(</span><span class="s3">!</span><span class="s1">foundDelete</span><span class="s2">) {</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;해당 학번의 학생이 없습니다.&quot;</span><span class="s2">);</span>
+                    <span class="s2">}</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">case </span><span class="s5">5</span><span class="s3">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;프로그램 종료&quot;</span><span class="s2">);</span>
+                    <span class="s1">check </span><span class="s3">= </span><span class="s0">false</span><span class="s2">;</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">default</span><span class="s3">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;잘못된 번호를 입력했습니다.&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+        <span class="s1">scanner</span><span class="s2">.</span><span class="s1">close</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
